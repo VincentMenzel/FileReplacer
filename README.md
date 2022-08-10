@@ -6,7 +6,7 @@ This script can be used to replace files in a directory. The source and destinat
 
 Start the Script
 
-```python3
+```bash
   python3 main.py
 ```
 
@@ -41,6 +41,13 @@ REPLACE    src/some/path/file.txt -> dest/some/path/file.txt
 The script generates 2 output files. `missing.txt` and `replaced.txt`.
 
 
+## invalid_files.txt
+The invalid_files.txt file contains all files that when checked did not qualify as a file by `os.path.isfile`.
+```
+dest/some/path/file.txt
+...
+```
+
 ## missing.txt
 
 The missing.txt file contains the paths to all missing files. These files could not be mapped to the source directory.
@@ -54,6 +61,14 @@ dest/some/path/file2.txt
 ## replaced.txt
 
 The replaced.txt file contains the path from the source directory which was used to replace the file in the destination directory.
+```
+src/some/path/file.txt -> dest/some/path/file.txt
+src/file2.txt -> dest/some/path/file2.txt
+...
+```
+
+## errors.txt
+The errors.txt file contains all copy operations in which an error occurred.
 ```
 src/some/path/file.txt -> dest/some/path/file.txt
 src/file2.txt -> dest/some/path/file2.txt
